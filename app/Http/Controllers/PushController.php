@@ -25,7 +25,7 @@ class PushController extends Controller
         $token    = $request->keys['auth'];
         $key      = $request->keys['p256dh'];
         $user     = Auth::user();
-        Log::info('before pushSubscription ok');
+        Log::info($user);
         $user->updatePushSubscription($endpoint, $key, $token);
         Log::info('after pushSubscription ok');
 
