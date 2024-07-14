@@ -1,8 +1,13 @@
 <?php
 
+use App\Http\Controllers\PushController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome');
+//Route::view('/', 'welcome');
+\Livewire\Volt\Volt::route('/', 'welcome')->middleware('auth')->name('home');
+\Livewire\Volt\Volt::route('/{id}', 'pray-now')->middleware('auth')->name('home.pray');
+
+Route::post('/push', [PushController::class, 'store'])->middleware('auth');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
