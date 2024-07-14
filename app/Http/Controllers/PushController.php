@@ -20,6 +20,7 @@ class PushController extends Controller
             'keys.auth'   => 'required',
             'keys.p256dh' => 'required',
         ]);
+        Log::info($request);
         $endpoint = $request->endpoint;
         $token    = $request->keys['auth'];
         $key      = $request->keys['p256dh'];
