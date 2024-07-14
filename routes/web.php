@@ -9,3 +9,4 @@ Route::post('/push', [PushController::class, 'store']);
 Route::get('/push', [PushController::class, 'push'])->name('push');
 
 Volt::route('/{id}', 'pray-now')->name('home');
+Volt::route('/', 'welcome')->name('home.user');
