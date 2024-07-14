@@ -27,10 +27,6 @@
         @filamentScripts
         @vite('resources/js/app.js')
         <script src="{{ asset('js/enable-push.js') }}" defer></script>
-        <script>
-            document.addEventListener('livewire:init', () => {
-                initSW();
-            })
-        </script>
+        <x-script />
     </body>
 </html>
