@@ -2,9 +2,8 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 use App\Models\Pray;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PrayFactory extends Factory
 {
@@ -22,7 +21,7 @@ class PrayFactory extends Factory
     {
         return [
             'body' => $this->faker->text(),
-            'ref' => $this->faker->regexify('[A-Za-z0-9]{48}'),
+            'ref'  => $this->faker->regexify('[A-Za-z0-9]{48}'),
         ];
     }
 }

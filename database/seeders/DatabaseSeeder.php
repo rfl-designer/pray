@@ -21,8 +21,5 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin'),
         ]);
 
-        $this->call([
-            PraySeeder::class,
-        ]);
     }
 }

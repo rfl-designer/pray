@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\PushController;
 use Illuminate\Support\Facades\Route;
+use Livewire\Volt\Volt;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::post('/push', [PushController::class, 'store']);
+
+Route::get('/push', [PushController::class, 'push'])->name('push');
+
+Volt::route('/{id}', 'pray-now')->name('home');

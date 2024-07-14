@@ -19,12 +19,18 @@
         @vite('resources/css/app.css')
     </head>
 
-    <body class="antialiased">
+    <body class="antialiased h-screen">
         {{ $slot }}
 
         @livewire('notifications')
 
         @filamentScripts
         @vite('resources/js/app.js')
+        <script src="{{ asset('js/enable-push.js') }}" defer></script>
+        <script>
+            document.addEventListener('livewire:init', () => {
+                initSW();
+            })
+        </script>
     </body>
 </html>
