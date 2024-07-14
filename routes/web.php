@@ -4,9 +4,12 @@ use App\Http\Controllers\PushController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-Route::post('/push', [PushController::class, 'store']);
+Route::middleware(\Filament\Http\Middleware\Authenticate::class)->group(function () {
 
-Route::get('/push', [PushController::class, 'push'])->name('push');
+    Route::post('/push', [PushController::class, 'store']);
 
-Volt::route('/{id}', 'pray-now')->name('home');
-Volt::route('/', 'welcome')->name('home.user');
+    Route::get('/push', [PushController::class, 'push'])->name('push');
+
+    Volt::route('/{id}', 'pray-now')->name('home');
+    Volt::route('/', 'welcome')->name('home.user');
+});
