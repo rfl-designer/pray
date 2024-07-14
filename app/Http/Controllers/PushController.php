@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\{Pray, User};
 use App\Notifications\PushDemo;
 use Illuminate\Http\{JsonResponse, Request, Response};
-use Illuminate\Support\Facades\{Auth, Log, Notification};
+use Illuminate\Support\Facades\{Auth, Notification};
 
 class PushController extends Controller
 {
@@ -14,20 +14,16 @@ class PushController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
-        Log::info('request ok');
         $request->validate([
             'endpoint'    => 'required',
             'keys.auth'   => 'required',
             'keys.p256dh' => 'required',
         ]);
-        Log::info($request);
         $endpoint = $request->endpoint;
         $token    = $request->keys['auth'];
         $key      = $request->keys['p256dh'];
         $user     = Auth::user();
-        Log::info($user);
         $user->updatePushSubscription($endpoint, $key, $token);
-        Log::info('after pushSubscription ok');
 
         return response()->json(['success' => true], 200);
     }
