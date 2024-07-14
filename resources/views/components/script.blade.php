@@ -2,6 +2,7 @@
     document.addEventListener('livewire:init', () => {
         initSW();
     })
+
     function initSW() {
         if (!"serviceWorker" in navigator) {
             //service worker isn't supported
@@ -18,7 +19,7 @@
         }
 
         //register the service worker
-        navigator.serviceWorker.register('../sw.js')
+        navigator.serviceWorker.register('{{ asset('sw.js') }}')
             .then(() => {
                 console.log('serviceWorker installed!')
                 initPush();
