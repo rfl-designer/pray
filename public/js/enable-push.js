@@ -51,8 +51,7 @@ function subscribeUser() {
         .then((registration) => {
             const subscribeOptions = {
                 userVisibleOnly: true,
-                applicationServerKey:
-                    'BJdUwVSr4wLap3iOHb3lnL1m_pADVahL00Kw-WDb6NEmn9iFBzrM3pog6e0e1eDb_e5W58aFV8w1gWHPx8GyUao'
+                applicationServerKey: 'BIVgdl5z13U5R9hHdpwSwOAU8wv1NPeRIQVvDx37z4ibV9aZyxJDgbd4SzRyLvxN7nmmU9jwmLIhX8vCtYIQAkE'
             };
 
             console.log('subscribe on push manager')
