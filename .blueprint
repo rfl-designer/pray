@@ -1,2 +1,8 @@
+created:
+    - database/factories/PrayFactory.php
+    - database/migrations/2024_07_14_000437_create_prays_table.php
+    - app/Models/Pray.php
+    - database/seeders/PraySeeder.php
 models:
     User: { name: string, email: string, email_verified_at: 'timestamp nullable', password: string, remember_token: 'string:100 nullable' }
+    Pray: { body: text, ref: 'string:48' }

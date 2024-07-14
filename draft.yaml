@@ -1,5 +1,7 @@
 models:
-  # ...
+  Pray:
+    body: text
+    ref: string:48
 
-controllers:
-  # ...
+seeders: Pray
+
