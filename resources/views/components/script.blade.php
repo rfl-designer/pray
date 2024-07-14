@@ -64,12 +64,14 @@
 
             })
             .then((pushSubscription) => {
+                console.log('received: ', JSON.stringify(pushSubscription))
                 storePushSubscription(pushSubscription);
             });
     }
 
     function storePushSubscription(pushSubscription) {
         const token = document.querySelector("meta[name=csrf-token]").getAttribute('content');
+        console.log(token)
 
         fetch('/push', {
             method: 'POST',
