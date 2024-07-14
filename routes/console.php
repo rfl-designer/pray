@@ -3,7 +3,7 @@
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 
-\Illuminate\Support\Facades\Schedule::command('pray:now')->everyMinute();
+\Illuminate\Support\Facades\Schedule::command('pray:now')->everyThirtyMinutes();
 
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
