@@ -56,7 +56,7 @@
             .then((registration) => {
                 const subscribeOptions = {
                     userVisibleOnly: true,
-                    applicationServerKey: '{{ env('VAPID_PUBLIC_KEY') }}'
+                    applicationServerKey: 'BIVgdl5z13U5R9hHdpwSwOAU8wv1NPeRIQVvDx37z4ibV9aZyxJDgbd4SzRyLvxN7nmmU9jwmLIhX8vCtYIQAkE'
                 };
 
                 console.log('subscribe on push manager')
