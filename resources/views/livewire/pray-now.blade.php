@@ -18,11 +18,11 @@ mount(function ($id) {
     <div class="h-16">
         <x-assets.logo />
     </div>
-    <div class="max-w-2xl mx-auto text-white/75 px-4 mt-8">
+    <div class="max-w-2xl mx-auto text-white/75 px-4 mt-8 text-center">
         {{ $pray->body }}
     </div>
     <div class="max-w-2xl w-full text-emerald-300 px-4 mt-8 flex justify-start">
-        <p class="w-full text-left italic">
+        <p class="w-full text-center italic">
             {{ $pray->ref }}
         </p>
     </div>
