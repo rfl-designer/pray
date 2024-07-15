@@ -2,10 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Models\{Pray, User};
-use App\Notifications\PushDemo;
+use App\Jobs\SendPrayNow;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Notification;
 
 class PrayNow extends Command
 {
@@ -26,10 +24,8 @@ class PrayNow extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): void
     {
-        $pray = Pray::query()->select('id', 'body', 'ref')->inRandomOrder()->first();
-
-        Notification::send(User::all(), new PushDemo($pray->id, $pray->body, $pray->ref));
+        SendPrayNow::dispatch();
     }
 }
