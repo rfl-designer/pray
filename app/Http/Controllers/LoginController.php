@@ -21,7 +21,7 @@ class LoginController extends Controller
         return redirect('/');
     }
 
-    public function _registerOrLoginUser(\Laravel\Socialite\Contracts\User $data): void
+    public function _registerOrLoginUser($data): void
     {
         $user = User::where('email', $data->email)->first();
 
