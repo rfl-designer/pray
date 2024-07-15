@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Route;
 \Livewire\Volt\Volt::route('/{id}', 'pray-now')->middleware('auth')->name('home.pray');
 
 Route::post('/push', [PushController::class, 'store'])->middleware('auth');
-Route::get('/push', [PushController::class, 'push'])->middleware('auth');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
