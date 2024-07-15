@@ -6,7 +6,7 @@ state('user')
 
 ?>
 
-<div class="h-full flex-col w-screen bg-slate-950 flex items-center justify-center">
+<div class="flex-col bg-slate-950 flex items-center justify-center">
     <h1 class="text-3xl font-bold text-white sr-only">
         Pray Now!!!
     </h1>

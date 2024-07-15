@@ -19,8 +19,11 @@
         @vite('resources/css/app.css')
     </head>
 
-    <body class="antialiased h-screen">
-        {{ $slot }}
+    <body class="antialiased flex flex-col-reverse h-screen w-screen bg-slate-950">
+        <livewire:user-button />
+        <div class="flex h-full w-full items-center justify-center">
+            {{ $slot }}
+        </div>
 
         @livewire('notifications')
 
