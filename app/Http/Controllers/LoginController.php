@@ -23,7 +23,6 @@ class LoginController extends Controller
 
     public function _registerOrLoginUser(\Laravel\Socialite\Contracts\User $data): void
     {
-        /** @var User $user */
         $user = User::where('email', $data->email)->first();
 
         if (!$user) {
