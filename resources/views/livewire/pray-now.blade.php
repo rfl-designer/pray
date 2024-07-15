@@ -12,9 +12,12 @@ mount(function ($id) {
 ?>
 
 <div class="h-full flex-col w-screen bg-slate-950 flex items-center justify-center">
-    <h1 class="text-3xl font-bold text-white">
+    <h1 class="text-3xl font-bold text-white sr-only">
         Pray Now!!!
     </h1>
+    <div class="h-16">
+        <x-assets.logo />
+    </div>
     <div class="max-w-2xl mx-auto text-white/75 px-4 mt-8">
         {{ $pray->body }}
     </div>
