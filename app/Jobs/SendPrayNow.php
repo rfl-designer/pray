@@ -32,7 +32,7 @@ class SendPrayNow implements ShouldQueue
         $users = User::all();
 
         foreach ($users as $user) {
-            $pray = Pray::select('id', 'body', 'ref')->inRandomOrder()->first();
+            $pray = Pray::query()->select('id', 'body', 'ref')->inRandomOrder()->first();
             Notification::send($user, new PushDemo($pray->id, $pray->body, $pray->ref));
             Log::info('send');
         }
