@@ -29,7 +29,7 @@ class PushDemo extends Notification
             ->icon('/notification-icon.png')
             ->body($this->ref)
             ->data([
-                'notiURL' => route('home.pray', ['id' => $this->id]),
+                'notiURL' => route('home', ['id' => $this->id]),
             ])
             ->action('Ver Oração', 'notification_action');
     }
