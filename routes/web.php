@@ -1,18 +1,15 @@
 <?php
 
+use App\Http\Controllers\PushController;
 use Illuminate\Support\Facades\Route;
+use Livewire\Volt\Volt;
 
-Route::view('/', 'welcome');
+Route::middleware(\Filament\Http\Middleware\Authenticate::class)->group(function () {
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+    Route::post('/push', [PushController::class, 'store']);
 
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
+    Route::get('/push', [PushController::class, 'push'])->name('push');
 
-Route::get('/login/google', [\App\Http\Controllers\LoginController::class, 'redirectToGoogle'])->name('login.google');
-Route::get('/login/google/callback', [\App\Http\Controllers\LoginController::class, 'redirectToGoogleCallback']);
-
-require __DIR__ . '/auth.php';
+    Volt::route('/{id}', 'pray-now')->name('home');
+    Volt::route('/', 'welcome')->name('home.user');
+});
