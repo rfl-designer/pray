@@ -6,7 +6,7 @@ state('id')->locked();
 state('pray');
 
 mount(function ($id) {
-    $this->pray = \App\Models\Pray::query()->findOrFail($id)->first();
+    $this->pray = \App\Models\Pray::findOrFail($id);
 });
 
 ?>
