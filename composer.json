@@ -9,6 +9,7 @@
         "filament/filament": "^3.2",
         "laravel-notification-channels/webpush": "^9.0",
         "laravel/framework": "^11.9",
+        "laravel/socialite": "^5.15",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
         "livewire/volt": "^1.6"
