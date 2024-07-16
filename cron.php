@@ -1,7 +1,7 @@
 <?php
 
 // Comando que você quer executar
-$command = "cd /home/u425289644/domains/praynow.rfloliveira.com.br && php artisan schedule:run 2> /path/to/error.log";
+$command = "cd /home/u425289644/domains/praynow.rfloliveira.com.br && php artisan schedule:run 2> /home/u425289644/domains/praynow.rfloliveira.com.br/storage/logs/laravel.log";
 
 // Executa o comando
 exec($command, $output, $return_var);
