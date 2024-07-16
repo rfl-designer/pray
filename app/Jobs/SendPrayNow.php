@@ -38,7 +38,7 @@ class SendPrayNow implements ShouldQueue
 
             try {
                 Notification::send($user, new PushDemo($pray->id, $pray->body, $pray->ref));
-                Log::info('Notification sent', ['user_id' => $user->id]);
+                Log::info('Notification sent', ['user_id' => $user->id, 'pray_id' => $pray->id]);
             } catch (\Exception $e) {
                 Log::error('Failed to send notification', [
                     'user_id' => $user->id,

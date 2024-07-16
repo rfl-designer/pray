@@ -69,7 +69,7 @@
                             return pushSubscription.unsubscribe().then(() => {
                                 const subscribeOptions = {
                                     userVisibleOnly: true,
-                                    applicationServerKey: 'BJZmq18jOWYQ96NiPXS35SOrThfjSREOfpIdYI87T1aqpoPQ1Y0R9MZR6owV8n36ZdxoXVtvZ8vP8QrGHuCyTMY'
+                                    applicationServerKey: '{{ config('services.webpush.vapid_public_key') }}'
                                 };
                                 console.log('Subscribing to push manager after unsubscribing');
                                 return registration.pushManager.subscribe(subscribeOptions);
