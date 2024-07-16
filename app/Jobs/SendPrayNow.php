@@ -30,11 +30,22 @@ class SendPrayNow implements ShouldQueue
     public function handle(): void
     {
         $users = User::all();
+        Log::info('Handle started: Sending notifications to users.', ['user_count' => $users->count()]);
 
         foreach ($users as $user) {
             $pray = Pray::query()->select('id', 'body', 'ref')->inRandomOrder()->first();
-            Notification::send($user, new PushDemo($pray->id, $pray->body, $pray->ref));
-            Log::info('send');
+            Log::info('Selected pray', ['pray_id' => $pray->id]);
+
+            try {
+                Notification::send($user, new PushDemo($pray->id, $pray->body, $pray->ref));
+                Log::info('Notification sent', ['user_id' => $user->id]);
+            } catch (\Exception $e) {
+                Log::error('Failed to send notification', [
+                    'user_id' => $user->id,
+                    'error'   => $e->getMessage(),
+                ]);
+            }
         }
+        Log::info('Handle finished: Notifications process completed.');
     }
 }
