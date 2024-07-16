@@ -65,12 +65,13 @@
                             console.log('subscribe on push manager')
                             return registration.pushManager.subscribe(subscribeOptions);
                         } else {
-                            pushSubscription.unsubscribe().then(successful => {
+                            pushSubscription.unsubscribe().then(pushSubscription => {
                                 const subscribeOptions = {
                                     userVisibleOnly: true,
                                     applicationServerKey: 'BJZmq18jOWYQ96NiPXS35SOrThfjSREOfpIdYI87T1aqpoPQ1Y0R9MZR6owV8n36ZdxoXVtvZ8vP8QrGHuCyTMY'
                                 };
-                                registration.pushManager.subscribe(subscribeOptions);
+                                console.log('chegou aqui')
+                                return registration.pushManager.subscribe(subscribeOptions);
                             }).catch(e => {
                                 console.log('not define new key')
                             })
