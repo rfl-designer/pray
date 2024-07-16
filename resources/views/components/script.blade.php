@@ -56,7 +56,7 @@
             .then((registration) => {
                 const subscribeOptions = {
                     userVisibleOnly: true,
-                    applicationServerKey: '{{ config('services.webpush.vapid_public_key') }}'
+                    applicationServerKey: 'BJZmq18jOWYQ96NiPXS35SOrThfjSREOfpIdYI87T1aqpoPQ1Y0R9MZR6owV8n36ZdxoXVtvZ8vP8QrGHuCyTMY'
                 };
 
                 console.log('subscribe on push manager')
