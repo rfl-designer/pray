@@ -54,36 +54,38 @@
     function subscribeUser() {
         navigator.serviceWorker.ready
             .then((registration) => {
-                registration.pushManager.getSubscription()
-                    .then(pushSubscription => {
+                return registration.pushManager.getSubscription()
+                    .then((pushSubscription) => {
                         if (!pushSubscription) {
                             const subscribeOptions = {
                                 userVisibleOnly: true,
                                 applicationServerKey: 'BJZmq18jOWYQ96NiPXS35SOrThfjSREOfpIdYI87T1aqpoPQ1Y0R9MZR6owV8n36ZdxoXVtvZ8vP8QrGHuCyTMY'
                             };
 
-                            console.log('subscribe on push manager')
+                            console.log('Subscribing to push manager');
                             return registration.pushManager.subscribe(subscribeOptions);
                         } else {
-                            pushSubscription.unsubscribe().then(pushSubscription => {
+                            console.log('Unsubscribing existing subscription');
+                            return pushSubscription.unsubscribe().then(() => {
                                 const subscribeOptions = {
                                     userVisibleOnly: true,
                                     applicationServerKey: 'BJZmq18jOWYQ96NiPXS35SOrThfjSREOfpIdYI87T1aqpoPQ1Y0R9MZR6owV8n36ZdxoXVtvZ8vP8QrGHuCyTMY'
                                 };
-                                console.log('chegou aqui')
+                                console.log('Subscribing to push manager after unsubscribing');
                                 return registration.pushManager.subscribe(subscribeOptions);
-                            }).catch(e => {
-                                console.log('not define new key')
-                            })
+                            });
                         }
-                    })
-
+                    });
             })
             .then((pushSubscription) => {
-                console.log('received: ', JSON.stringify(pushSubscription))
+                console.log('Received push subscription:', JSON.stringify(pushSubscription));
                 storePushSubscription(pushSubscription);
+            })
+            .catch((error) => {
+                console.error('Failed to subscribe to push notifications:', error);
             });
     }
+
 
     function storePushSubscription(pushSubscription) {
         const token = document.querySelector("meta[name=csrf-token]").getAttribute('content');
